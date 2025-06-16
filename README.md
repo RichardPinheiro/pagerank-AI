@@ -130,8 +130,14 @@ On Windows, use:
 pip install -r requirements.txt
 ```
 
-### 5. Run the Game
+### 5. Run PageRank
 
 ```bash
-python3 runner.py
+python3 pagerank.py corpus0
+```
+```bash
+python3 pagerank.py corpus1
+```
+```bash
+python3 pagerank.py corpus2
 ```
