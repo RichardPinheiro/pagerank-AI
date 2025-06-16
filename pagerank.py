@@ -108,7 +108,30 @@ def iterate_pagerank(corpus, damping_factor):
     their estimated PageRank value (a value between 0 and 1). All
     PageRank values should sum to 1.
     """
-    raise NotImplementedError
+    n = len(corpus)
+    pagerank = {page: 1 / n for page in corpus}
+
+    while True:
+        new_pagerank = {}
+        for page in corpus:
+            total = 0
+            for potential_linker in corpus:
+                if page in corpus[potential_linker]:
+                    total += pagerank[potential_linker] / len(corpus[potential_linker])
+                if not corpus[potential_linker]:
+                    total += pagerank[potential_linker] / n
+            new_pagerank[page] = ((1 - damping_factor) / n) + (damping_factor * total)
+
+        converged = all(
+            abs(new_pagerank[page] - pagerank[page]) < 0.001
+            for page in pagerank
+        )
+        pagerank = new_pagerank
+
+        if converged:
+            break
+
+    return pagerank
 
 
 if __name__ == "__main__":
