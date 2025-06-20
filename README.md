@@ -104,7 +104,7 @@ Set up the project on your machine and compute PageRank from any corpus of HTML 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/RichardPinheiro/pagerank-ai.git
+git clone https://github.com/RichardPinheiro/pagerank-AI.git
 cd pagerank-ai
 ```
 
